@@ -1,0 +1,38 @@
+//- index.jade
+extends ./layout.jade
+
+block content
+  div.container-fluid
+    div.row
+        h1 How to Join
+        h2 How to help
+
+        p To join the test liskstats network please make sure you are doing the following
+        strong Prerequisites
+        ol
+            li Running a *testnet* node
+            li Have a decent sized swapfile on your VPS
+
+        strong Instructions
+        ol
+            li
+                code git clone https://github.com/karek314/lisk-network-reporter
+            li Follow install instructions but update the #[code env] section in config.json to values below
+            li Ask liskitall.co.uk on https://lisk.chat/ for WS secret
+            li Edit #[code env] section in `config.json` to match below
+                pre
+                    code
+                    |"env": {
+                    |    "NODE_ENV"        : "production",
+                    |    "RPC_HOST"        : "0.0.0.0",
+                    |    "RPC_PORT"        : "7000",
+                    |    "LISTENING_PORT"  : "7000",
+                    |    "INSTANCE_NAME"   : "teststats.liskitall.co.uk",
+                    |    "CONTACT_DETAILS" : "liskitall.co.uk",
+                    |    "NETWORK_MODE"    : "main",
+                    |    "WS_SERVER"       : "ws://report-teststats.liskitall.co.uk",
+                    |    "WS_SECRET"       : "ask in lisk.chat",
+                    |    "VERBOSITY"       : 0
+                    |}
+            li Run scripts as defined here https://github.com/karek314/lisk-network-reporter#run
+            li Look for your node to appear on #[a(href="http://teststats.liskitall.co.uk") TestStats]
